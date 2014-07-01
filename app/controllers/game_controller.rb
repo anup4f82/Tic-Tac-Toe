@@ -1,14 +1,13 @@
 class GameController < ApplicationController
-# @@c = 0
+  
+  @board = Array.new(9)
 
-   @board = Array.new(9)
 
 	def index
      @board = Array.new(9)
       render :index
        
-
-    end
+   end
 
 
 
@@ -22,6 +21,7 @@ class GameController < ApplicationController
          @board = []
          @winner = nil
          Game.resetboard
+         render :index
 
 	   else
 	     @board = Game.cell(click)

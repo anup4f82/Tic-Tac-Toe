@@ -1,4 +1,5 @@
-class Welcome
+class Game
+
 
 	@@board = Array.new(9)
 	@@counter = 0
@@ -12,9 +13,7 @@ class Welcome
    end
 
 
-
-
-     def self.cell(cellvalue)
+  def self.cell(cellvalue)
      
      	
      	if @@counter % 2 == 0
@@ -78,11 +77,7 @@ class Welcome
      	end
       end
 
-     # def self.winner
-
-     # 	@@board.each_slice(3){|x| p}
-     # end
-     	 
+  
 
      	 	
 
