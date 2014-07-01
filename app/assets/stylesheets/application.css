@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+td, th {
+  border: solid 80px white;
+  border-color: green
+}
+
+#zero {
+
+   background-color: green;
+     height: 150px;
+    width: 150px;
+     float:left;    
+     font-size: 40px;
+
+}
+
+
+#one {
+    float:left;
+    background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+#two {
+
+    background-color: green;
+    height: 150px;
+    width: 150px;
+    font-size: 40px;
+}
+#three { 
+    float:left;
+    background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+}
+#four{
+
+    float:left; 
+   background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+#five{
+        
+    
+   background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+#six{
+
+      float:left;
+   background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+#seven{
+
+      float:left;
+   background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+
+#eight  {
+
+    
+   background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+/*
+#submit {
+
+	width:0px;
+	height:0.2px;
+	background: transparent;
+	padding: 0;
+
+
+
+}*/
+
+/*.imgClass { 
+    background-image: url(http://inspectelement.com/wp-content/themes/inspectelementv2/style/images/button.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    width: 200px;
+    height: 300px;
+    border: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    outline: 0;
+}*/

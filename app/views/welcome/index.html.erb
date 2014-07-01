@@ -1,0 +1,63 @@
+<h1>Tic-Tac-Toe</h1>
+  <h2><%= @winner || "" %></h2>
+
+     <%= form_tag("/", method: "post") do %>
+            <%= hidden_field_tag :user_click, "9" %>
+            <%= submit_tag "Play  game"  %>
+          <% end %>
+
+<body>
+         <% if @board %>
+        
+
+            <%= form_tag("/", method: "post") do %>
+            <%= hidden_field_tag :user_click, "0" %>
+           <%= submit_tag "", :id => "zero",:value => @board[0] || ""  %>
+          <% end %>
+
+          <%= form_tag("/", method: "post") do %>
+            <%= hidden_field_tag :user_click, "1" %>
+        <%= submit_tag "", :id => "one",:value => @board[1] || ""  %>
+          <% end %>
+
+             <%= form_tag("/", method: "post") do %>
+            <%= hidden_field_tag :user_click, "2" %>
+          <%= submit_tag "", :id => "two",:value => @board[2] || ""  %>
+          <% end %>
+
+             <%= form_tag("/", method: "post") do %>
+            <%= hidden_field_tag :user_click, "3" %>
+         <%= submit_tag "", :id => "three",:value => @board[3] || "" %>
+            <% end %>
+
+             <%= form_tag("/", method: "post") do %>
+            <%= hidden_field_tag :user_click, "4" %>
+           <%= submit_tag "", :id => "four",:value => @board[4] || ""  %>
+          <% end %>
+
+             <%= form_tag("/", method: "post") do %>
+            <%= hidden_field_tag :user_click, "5" %>
+             <%= submit_tag "", :id => "five",:value => @board[5] || "" %>
+
+            <% end %>
+
+       
+             <%= form_tag("/", method: "post") do %>
+            <%= hidden_field_tag :user_click, "6" %>
+        <%= submit_tag "", :id => "six",:value => @board[6] || "" %>
+          <% end %>
+
+             <%= form_tag("/", method: "post") do %>
+            <%= hidden_field_tag :user_click, "7" %>
+           <%= submit_tag "", :id => "seven",:value => @board[7] || ""  %>
+          <% end %>
+
+               <%= form_tag("/", method: "post") do %>
+            <%= hidden_field_tag :user_click, "8" %>
+           <%= submit_tag "", :id => "eight",:value => @board[8] || ""  %>
+          <% end %>
+
+          <% end %>
+
+</body>
+        
