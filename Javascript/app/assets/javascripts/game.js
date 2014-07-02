@@ -116,10 +116,11 @@ else if ([board[2],board[4],board[6]].uniq().length == 1 && [board[2],board[4],b
   {winner = "Player "+board[2]+" WINS!"
 alert(winner)}
 
-          // else if (board.compact.length == 9)
-          //      winner = "Draw!"
-        }
+  else if(count == 9){
+    alert("Draw - find a better game.")
+  }
 
+}
 
 // function switchTurns(){
 //   if state = "X"
