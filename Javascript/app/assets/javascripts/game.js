@@ -1,57 +1,22 @@
 $(document).ready (function(){
-count = 0;
+  count = 0;
+  board = [];
 
-$('#zero').on('click',function(){
-	
-	place(this)
-   
-  	 
-});
-$('#one').on('click',function(){
+placePiece = function(){
+  place(this)
+  }
 
-	place(this)
 
-});
-$('#two').on('click',function(){
-	
 
-	place(this)
-	
-  	 
-});
-$('#three').on('click',function(){
-	
-	place(this)
-  	 
-});
-$('#four').on('click',function(){
-	
-	place(this)
-  	 
-});
-$('#five').on('click',function(){
-	
-	place(this)
-  	 
-});
-
-$('#six').on('click',function(){
-	
-	place(this)
-  	 
-});
-
-$('#seven').on('click',function(){
-	
-	place(this)
-  	 
-});
-
-$('#eight').on('click',function(){
-	
-	place(this)
-  	 
-});
+  $('#0').on('click', placePiece);
+  $('#1').on('click', placePiece);
+  $('#2').on('click', placePiece);
+  $('#3').on('click', placePiece);
+  $('#4').on('click', placePiece);
+  $('#5').on('click', placePiece);
+  $('#6').on('click', placePiece);
+  $('#7').on('click', placePiece);
+  $('#8').on('click',placePiece);
 
 
 
@@ -59,25 +24,36 @@ $('#eight').on('click',function(){
 
 
 
-function place(e){
+  function place(e){
 
-	
+    if (count%2 === 0) {
 
-if (count%2 === 0) {
+     value =  "X"
+    board[e.id] = value
 
-   value =  "X"
-}
+   }
 
-else {
+   else {
 
-	value =  "O"
-}
+     value =  "O"
+      board[e.id] = value
+   }
 
-e.innerHTML = value
-count+=1
+   e.innerHTML = value
+
+   count+=1
+
+  winner(board)
+
+ }
+
+
+function winner(board){
+
+
+
 
 }
-
 
 });
 
