@@ -1,5 +1,4 @@
 class GameController < ApplicationController
-# @@c = 0
 
 @board = Array.new(9)
 
