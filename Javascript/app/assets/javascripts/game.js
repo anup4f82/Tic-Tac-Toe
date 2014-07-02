@@ -13,42 +13,42 @@ $(document).ready (function(){
 
 
 
- });
+});
 
 
 
- placePiece = function(){
-    place(this)
-  }
+placePiece = function(){
+  place(this)
+}
 
 
 
 
 
-  function place(e){
+function place(e){
 
-    if (count%2 === 0) {
+  if (count%2 === 0) {
 
-     value =  "X"
-     board[e.id] = value
-
-   }
-
-   else {
-
-     value =  "O"
-     board[e.id] = value
-   }
-
-   e.innerHTML = value
-
-   count+=1
-
-   win(board)
+   value =  "X"
+   board[e.id] = value
 
  }
 
- Array.prototype.contains = function(v) {
+ else {
+
+   value =  "O"
+   board[e.id] = value
+ }
+
+ e.innerHTML = value
+
+ count+=1
+
+ win(board)
+
+}
+
+Array.prototype.contains = function(v) {
   for(var i = 0; i < this.length; i++) {
     if(this[i] === v) return true;
   }
@@ -74,57 +74,51 @@ function win(board){
 console.log([board[3],board[4],board[5]].uniq())
 
 if ([board[0],board[1],board[2]].uniq().length == 1 && [board[0],board[1],board[2]].uniq()[0] != undefined)
-  {
-     winner = "Player "+board[0]+" WINS!"
-    alert(winner)
-   }
+{
+ winner = "Player "+board[0]+" WINS!"
+ alert(winner)
+}
 
 
 
-  else if ([board[3],board[4],board[5]].uniq().length == 1 && [board[3],board[4],board[5]].uniq()[0] != undefined)
-    {
-    console.log([board[3],board[4],board[5]].uniq()[0])
-    console.log([board[3],board[4],board[5]].uniq().length)
+else if ([board[3],board[4],board[5]].uniq().length == 1 && [board[3],board[4],board[5]].uniq()[0] != undefined){
+ winner = "Player "+board[3]+" WINS!"
+ alert(winner)
+}
 
-     winner = "Player "+board[3]+" WINS!"
-     alert(winner)
-  }
-  else if
-    ([board[3],board[4],board[5]].uniq().length == 1 && [board[3],board[4],board[5]].uniq()[0] != undefined){
-    winner = "Player "+board[3]+" WINS!"
-   alert(winner)
+else if ([board[6],board[7],board[8]].uniq().length == 1 && [board[6],board[7],board[8]].uniq()[0] != undefined)
 
- }
+  {winner = "Player "+board[6]+" WINS!"
+alert(winner)}
 
-       else if ([board[6],board[7],board[8]].uniq().length == 1 && [board[6],board[7],board[8]].uniq()[0] != undefined)
+else if ([board[0],board[3],board[6]].uniq().length == 1 && [board[0],board[3],board[6]].uniq()[0] != undefined)
 
-        winner = "Player #{board[6]} WINS!"
+  {winner = "Player "+board[0]+" WINS!"
+alert(winner)}
 
-         else if ([board[0],board[3],board[6]].uniq().length == 1 && [board[0],board[3],board[6]].uniq()[0] != undefined)
+else if ([board[1],board[4],board[7]].uniq().length == 1 && [board[1],board[4],board[7]].uniq()[0] != undefined)
 
-        winner = "Player #{board[0]} WINS!"
+  {winner = "Player "+board[1]+" WINS!"
+alert(winner)}
 
-         else if ([board[1],board[4],board[7]].uniq().length == 1 && [board[1],board[4],board[7]].uniq()[0] != undefined)
+else if ([board[2],board[5],board[8]].uniq().length == 1 && [board[2],board[5],board[8]].uniq()[0] != undefined)
 
-        winner = "Player #{board[1]} WINS!"
+  {winner = "Player "+board[2]+" WINS!"
+alert(winner)}
 
-         else if ([board[2],board[5],board[8]].uniq().length == 1 && [board[2],board[5],board[8]].uniq()[0] != undefined)
+else if ([board[0],board[4],board[8]].uniq().length == 1 &&  [board[0],board[4],board[8]].uniq()[0] != undefined)
 
-         winner = "Player #{board[2]} WINS!"
+  {winner = "Player "+board[0]+" WINS!"
+alert(winner)}
 
-         else if ([board[0],board[4],board[8]].uniq().length == 1 &&  [board[0],board[4],board[8]].uniq()[0] != undefined)
+else if ([board[2],board[4],board[6]].uniq().length == 1 && [board[2],board[4],board[6]].uniq()[0] != undefined)
 
-        winner = "Player #{board[0]} WINS!"
+  {winner = "Player "+board[2]+" WINS!"
+alert(winner)}
 
-         else if ([board[2],board[4],board[6]].uniq().length == 1 && [board[2],board[4],board[6]].uniq()[0] != undefined)
-
-        winner = "Player #{board[2]} WINS!"
-
-          else if (board.compact.length == 9)
-               winner = "Draw!"
-
-
-    }
+          // else if (board.compact.length == 9)
+          //      winner = "Draw!"
+        }
 
 
 // function switchTurns(){
