@@ -1,52 +1,13 @@
+
 $(document).ready (function(){
-  count = 0;
-  board = [];
-  $('#0').on('click', placePiece);
-  $('#1').on('click', placePiece);
-  $('#2').on('click', placePiece);
-  $('#3').on('click', placePiece);
-  $('#4').on('click', placePiece);
-  $('#5').on('click', placePiece);
-  $('#6').on('click', placePiece);
-  $('#7').on('click', placePiece);
-  $('#8').on('click', placePiece);
-
-
-
+  // $('#tictac').on('click', 'td', placePiece);
+  var view = new View();
+  var model = new Model();
+  view.bindEventListeners();
+  var controller = new Controller(view, model);
 });
 
-
-
-placePiece = function(){
-  place(this)
-}
-
-
-
-
-
-function place(e){
-
-  if (count%2 === 0) {
-
-   value =  "X"
-   board[e.id] = value
-
- }
-
- else {
-
-   value =  "O"
-   board[e.id] = value
- }
-
- e.innerHTML = value
-
- count+=1
-
- win(board)
-
-}
+//////////////Array Patching///////////////
 
 Array.prototype.contains = function(v) {
   for(var i = 0; i < this.length; i++) {
@@ -65,75 +26,112 @@ Array.prototype.uniq = function() {
   return arr;
 }
 
+////////////////////////////////////////////
+///////////////VIEW/////////////////////////
+////////////////////////////////////////////
 
 
 
-function win(board){
-// console.log([1,2,3].uniq())
-
-console.log([board[3],board[4],board[5]].uniq())
-
-if ([board[0],board[1],board[2]].uniq().length == 1 && [board[0],board[1],board[2]].uniq()[0] != undefined)
-{
- winner = "Player "+board[0]+" WINS!"
- alert(winner)
+function View(){
+  var table = "tictac";
 }
 
+View.prototype = {
 
-
-else if ([board[3],board[4],board[5]].uniq().length == 1 && [board[3],board[4],board[5]].uniq()[0] != undefined){
- winner = "Player "+board[3]+" WINS!"
- alert(winner)
 }
 
-else if ([board[6],board[7],board[8]].uniq().length == 1 && [board[6],board[7],board[8]].uniq()[0] != undefined)
+////////////////////////////////////////////
+//////////////Controller////////////////////
+////////////////////////////////////////////
 
-  {winner = "Player "+board[6]+" WINS!"
-alert(winner)}
+function Controller(view, model){
+  this.view = view
+  this.model = model
+  // this.view.bindEventListeners();
+}
 
-else if ([board[0],board[3],board[6]].uniq().length == 1 && [board[0],board[3],board[6]].uniq()[0] != undefined)
-
-  {winner = "Player "+board[0]+" WINS!"
-alert(winner)}
-
-else if ([board[1],board[4],board[7]].uniq().length == 1 && [board[1],board[4],board[7]].uniq()[0] != undefined)
-
-  {winner = "Player "+board[1]+" WINS!"
-alert(winner)}
-
-else if ([board[2],board[5],board[8]].uniq().length == 1 && [board[2],board[5],board[8]].uniq()[0] != undefined)
-
-  {winner = "Player "+board[2]+" WINS!"
-alert(winner)}
-
-else if ([board[0],board[4],board[8]].uniq().length == 1 &&  [board[0],board[4],board[8]].uniq()[0] != undefined)
-
-  {winner = "Player "+board[0]+" WINS!"
-alert(winner)}
-
-else if ([board[2],board[4],board[6]].uniq().length == 1 && [board[2],board[4],board[6]].uniq()[0] != undefined)
-
-  {winner = "Player "+board[2]+" WINS!"
-alert(winner)}
-
-  else if(count == 9){
-    alert("Draw - find a better game.")
+Controller.prototype = {
+  bindEventListeners: function(){
+    $(this.view.table).on('click', 'td', placePiece);
+    // $('#0').on('click', placePiece);
+    // $('#1').on('click', placePiece);
+    // $('#2').on('click', placePiece);
+    // $('#3').on('click', placePiece);
+    // $('#4').on('click', placePiece);
+    // $('#5').on('click', placePiece);
+    // $('#6').on('click', placePiece);
+    // $('#7').on('click', placePiece);
+    // $('#8').on('click', placePiece);
+  },
+  placePiece = function(domObject){
+    var cellNum = domObject.id
+    this.model.makeMove(cellNum)
+    var lastMove = this.model.lastMove(); // returns last move information
+    this.view.updateBoard(lastMove) //lastMove = {player: 'X', cell: cellNum}
   }
-
 }
 
-// function switchTurns(){
-//   if state = "X"
-//     state = "Y"
-//   elsif state = "Y"
-//     state = "X"
-//   end
-// }
+////////////////////////////////////////////
+/////////////Model//////////////////////////
+////////////////////////////////////////////
 
-// state = "X"
-// workingArray = []
-// if board[0] == state && board[1] == state && board[2] == state
-//   alert(state"win!")
-// end
+function Model(){
+  count = 0;
+  board = [];
+}
 
+Model.prototype = {
+  place: function(e){
+    if (count%2 === 0) {
+     value =  "X"
+     board[e.id] = value
+     }
+    else {
+      value =  "O"
+      board[e.id] = value
+     }
+     e.innerHTML = value
+     count+=1
+     win(board)
+      }
 
+ function win(board){
+
+  if ([board[0],board[1],board[2]].uniq().length == 1 && [board[0],board[1],board[2]].uniq()[0] != undefined){
+   winner = "Player "+board[0]+" WINS!"
+   alert(winner)
+ }
+ else if ([board[3],board[4],board[5]].uniq().length == 1 && [board[3],board[4],board[5]].uniq()[0] != undefined){
+   winner = "Player "+board[3]+" WINS!"
+   alert(winner)
+ }
+ else if ([board[6],board[7],board[8]].uniq().length == 1 && [board[6],board[7],board[8]].uniq()[0] != undefined){
+  winner = "Player "+board[6]+" WINS!"
+  alert(winner)
+}
+else if ([board[0],board[3],board[6]].uniq().length == 1 && [board[0],board[3],board[6]].uniq()[0] != undefined){
+  winner = "Player "+board[0]+" WINS!"
+  alert(winner)
+}
+else if ([board[1],board[4],board[7]].uniq().length == 1 && [board[1],board[4],board[7]].uniq()[0] != undefined){
+  winner = "Player "+board[1]+" WINS!"
+  alert(winner)
+}
+else if ([board[2],board[5],board[8]].uniq().length == 1 && [board[2],board[5],board[8]].uniq()[0] != undefined){
+  winner = "Player "+board[2]+" WINS!"
+  alert(winner)
+}
+else if ([board[0],board[4],board[8]].uniq().length == 1 &&  [board[0],board[4],board[8]].uniq()[0] != undefined){
+  winner = "Player "+board[0]+" WINS!"
+  alert(winner)
+}
+else if ([board[2],board[4],board[6]].uniq().length == 1 && [board[2],board[4],board[6]].uniq()[0] != undefined){
+  winner = "Player "+board[2]+" WINS!"
+  alert(winner)
+}
+else if(count == 9){
+  alert("Draw - find a better game.")
+}
+
+}
+}
