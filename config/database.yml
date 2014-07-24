@@ -25,28 +25,20 @@
 #   database: db/production.sqlite3
 
 
+#database.yml sample
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
 
-  development:
-  adapter: postgresql
- host: localhost
-  encoding: unicode
-  database: myapp_development
-  pool: 5
-  username: myapp
-  password:
+development:
+  <<: *default
+  database: strava-with-friends_development
 test:
-  adapter: postgresql
-  host: localhost
-  encoding: unicode
-  database: myapp_test
-  pool: 5
-  username: myapp
-  password:
+  <<: *default
+  database: strava-with-friends_test
 production:
-  adapter: postgresql
-  host: localhost
-  encoding: unicode
-  database: myapp_production
-  pool: 5
-  username: myapp
+  <<: *default
+  database: strava-with-friends_production
+  username: #Set these when you deploy
   password:
