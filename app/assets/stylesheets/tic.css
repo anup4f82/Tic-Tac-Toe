@@ -1,0 +1,84 @@
+td, th {
+  border: solid 80px white;
+  border-color: green
+}
+
+#zero {
+
+   background-color: green;
+     height: 150px;
+    width: 150px;
+     float:left;    
+     font-size: 40px;
+    
+}
+
+
+#one {
+    float:left;
+    background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+#two {
+
+    background-color: green;
+    height: 150px;
+    width: 150px;
+    font-size: 40px;
+}
+#three { 
+    float:left;
+    background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+}
+#four{
+
+    float:left; 
+   background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+#five{
+        
+    
+   background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+#six{
+
+      float:left;
+   background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+#seven{
+
+      float:left;
+   background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
+
+#eight  {
+
+    
+   background-color: green;
+     height: 150px;
+    width: 150px;
+    font-size: 40px;
+
+}
